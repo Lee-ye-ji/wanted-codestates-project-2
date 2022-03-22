@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import theme from './styles/theme';
@@ -15,10 +14,9 @@ function App() {
       <Router>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<MainPage />}>
-              <Route path="rank" element={<RankingPage />} />
-              <Route path="user:id" element={<SearchPage />} />
-            </Route>
+            <Route path="/" element={<MainPage />} />
+            <Route path="rank" element={<RankingPage />} />
+            <Route path="/nick/:id" element={<SearchPage />} />
           </Route>
         </Routes>
       </Router>

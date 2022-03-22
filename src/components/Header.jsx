@@ -1,22 +1,17 @@
 import { BiCaretDown } from 'react-icons/bi';
 import Inner from './Inner';
 import styled from 'styled-components';
+import { LOGO_KART, TMI_LOGO_DEFAULT_B } from '../constants/image';
 
 function Header() {
   return (
     <HeaderStyle>
       <Inner>
         <KartLogo>
-          <Img
-            src="https://tmi.nexon.com/img/assets/logo_kart.png"
-            alt="logo_kart"
-          />
+          <Img src={LOGO_KART} alt="logo_kart" />
           <BiCaretDown />
         </KartLogo>
-        <Img
-          src="	https://tmi.nexon.com/img/assets/tmi_logo_default_b.svg"
-          alt="tmi_logo_default"
-        />
+        <Img src={TMI_LOGO_DEFAULT_B} alt="tmi_logo_default" />
         <Home>카트라이더 홈페이지 바로가기</Home>
       </Inner>
     </HeaderStyle>

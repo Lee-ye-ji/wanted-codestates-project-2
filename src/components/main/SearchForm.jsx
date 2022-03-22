@@ -1,20 +1,33 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { TMI_LOGO_DEFAULT } from '../../constants/image';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 function SearchForm() {
+  const [nickName, setNickName] = useState('');
+  const navigation = useNavigate();
+  const nickClick = () => {
+    navigation(`/nick/${nickName}`);
+  };
   return (
     <Searchform>
       <form>
         <SelectBox>
-          <label for="selectCategory">유저</label>
+          <label htmlFor="selectCategory">유저</label>
           <select id="selectCategory">
             <option value="유저">유저</option>
             <option value="카트">카트</option>
             <option value="트랙">트랙</option>
           </select>
         </SelectBox>
-        <Input type="search" placeholder="카트바디 이름을 입력" />
-        <button>
+        <Input
+          type="search"
+          placeholder="카트라이더 닉네임을 입력"
+          value={nickName}
+          onChange={(e) => setNickName(e.target.value)}
+        />
+        <button onClick={nickClick}>
           <img src={TMI_LOGO_DEFAULT} alt="tmi-button" />
         </button>
       </form>

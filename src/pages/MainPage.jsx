@@ -26,6 +26,7 @@ export default MainPage;
 
 const ContentMain = styled.div`
   width: 100%;
+  background: #005fcc;
   background-image: url(${MAIN_BG});
   position: relative;
   text-align: center;
