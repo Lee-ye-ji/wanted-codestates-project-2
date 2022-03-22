@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import Inner from '../components/Inner';
-import Tab from '../components/Tab';
+import Menu from '../components/Menu';
 
 function RankingPage() {
   return (
     <Base>
       <Inner>
-        <Tab />
+        <Menu />
       </Inner>
     </Base>
   );

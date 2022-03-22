@@ -1,12 +1,10 @@
 import styled, { keyframes } from 'styled-components';
+import { COVID_RIGHT, MAIN_RIGHT_BG } from '../../constants/image';
 
 function RightAnimation() {
   return (
     <>
-      <CovidRight
-        src="https://tmi.nexon.com/img/assets/covid_right.png"
-        alt="covid_right"
-      />
+      <CovidRight src={COVID_RIGHT} alt="covid_right" />
       <RightBgIn></RightBgIn>
     </>
   );
@@ -40,7 +38,7 @@ const RightBgIn = styled.span`
   height: 16.44em;
   top: ${top};
   right: 0;
-  background-image: url('https://tmi.nexon.com/img/main_right_bg.png');
+  background-image: url(${MAIN_RIGHT_BG});
   background-size: cover;
   background-position: 50%;
   animation: ${dao} 0.7s ease-out;

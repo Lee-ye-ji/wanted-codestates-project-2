@@ -11,6 +11,6 @@ const InnerStyle = styled.div`
   position: relative;
   max-width: 55.56em;
   height: ${(props) => props.height};
-  margin: auto;
+  margin: 0 auto;
   line-height: ${(props) => props.height};
 `;

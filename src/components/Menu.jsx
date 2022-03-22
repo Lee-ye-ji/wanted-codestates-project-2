@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Tab() {
+function Menu() {
   return (
-    <TabStyle>
+    <MenuStyle>
       <li>
         <NavLink to="/">홈</NavLink>
       </li>
@@ -17,13 +17,13 @@ function Tab() {
       <li>
         <NavLink to="/track">트랙</NavLink>
       </li>
-    </TabStyle>
+    </MenuStyle>
   );
 }
 
-export default Tab;
+export default Menu;
 
-const TabStyle = styled.ul`
+const MenuStyle = styled.ul`
   position: absolute;
   z-index: 10;
   display: flex;
