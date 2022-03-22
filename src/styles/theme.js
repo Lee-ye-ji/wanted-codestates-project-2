@@ -3,6 +3,15 @@ import { css } from 'styled-components';
 const color = {
   blue: '#07f',
   backgroundBlue: '#005fcc',
+  opacity: 'rgba(0, 0, 0, 0.3)',
+  white: '#fff',
+  black: '#000',
+};
+
+const font = {
+  four: 400,
+  five: 500,
+  six: 600,
 };
 
 const sizes = {
@@ -23,6 +32,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 
 const theme = {
   color,
+  font,
   media,
 };
 

@@ -3,9 +3,10 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import theme from './styles/theme';
 import GlobalStyle from './styles/global';
-import KartPage from './pages/KartPage';
+import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import RankingPage from './pages/RankingPage';
+import Layout from './components/Layout';
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/" element={<KartPage />}>
-            <Route path="rank" element={<RankingPage />} />
-            <Route path="user:id" element={<SearchPage />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<MainPage />}>
+              <Route path="rank" element={<RankingPage />} />
+              <Route path="user:id" element={<SearchPage />} />
+            </Route>
           </Route>
         </Routes>
       </Router>
