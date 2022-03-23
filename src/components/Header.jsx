@@ -20,7 +20,7 @@ function Header() {
 
 export default Header;
 
-const height = '2.67em';
+const height = '48px';
 const HeaderStyle = styled.header`
   vertical-align: middle;
   position: relative;
@@ -32,7 +32,7 @@ const HeaderStyle = styled.header`
 const KartLogo = styled.span`
   cursor: pointer;
   color: #ccc;
-  padding: 0.8em 0;
+  padding: 14px 0;
   &:hover {
     background-color: #e4e4e4;
   }
@@ -40,14 +40,13 @@ const KartLogo = styled.span`
 
 const Img = styled.img`
   vertical-align: middle;
-  padding: 0.5em;
+  margin: 5px;
   cursor: pointer;
 `;
 
 const Home = styled.span`
   position: absolute;
   right: 0;
-  font-size: 12px;
   color: #6c7a89;
   cursor: pointer;
 `;

@@ -28,7 +28,7 @@ const Area = styled.div`
   animation: ${animation} 0.5s ease-out;
 `;
 
-const psize = '1.56em';
+const psize = '28px';
 const OpenP = styled.p`
   font-size: ${psize};
   line-height: ${psize};
@@ -36,7 +36,7 @@ const OpenP = styled.p`
 `;
 
 const KartP = styled.p`
-  font-size: 2.22em;
+  font-size: 40px;
   font-weight: ${({ theme }) => theme.font.four};
   span {
     font-weight: ${({ theme }) => theme.font.six};
@@ -44,14 +44,14 @@ const KartP = styled.p`
 `;
 
 const MaincopyButton = styled.button`
-  margin-top: 0.28em;
+  margin-top: 5px;
   display: inline-block;
-  width: 15.56em;
-  line-height: 1.44em;
+  width: 280px;
+  line-height: 26px;
   background: ${({ theme }) => theme.color.opacity};
-  border-radius: 0.94em;
+  border-radius: 15px;
   border: none;
   color: ${({ theme }) => theme.color.white};
-  font-size: 1.13em;
+  font-size: 18px;
   font-weight: ${({ theme }) => theme.font.four};
 `;

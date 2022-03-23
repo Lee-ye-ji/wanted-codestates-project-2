@@ -59,17 +59,17 @@ const Searchform = styled.div`
   transform: translate(-50%, -50%);
   transition: width 0.5s;
   box-sizing: border-box;
-  border-radius: 1.86em;
+  border-radius: 33.5px;
   border: 4px solid #fff;
-  padding: 0 0.28em;
-  height: 3.72em;
+  padding: 5px;
+  height: 67px;
   form {
     display: flex;
     flex-direction: row;
     button {
       border: none;
       background-color: transparent;
-      margin: 1em;
+      margin: 16px;
     }
   }
 `;
@@ -81,9 +81,9 @@ const Input = styled.input`
   outline: 0;
   border: 0;
   display: block;
-  font-size: 1.33em;
+  font-size: 20px;
   font-weight: 400;
-  padding: 0 1.39em;
+  padding: 0 24px;
   background: transparent;
   color: ${(props) => props.theme.color.white};
   animation: ${search} 0.5s ease-out;
@@ -99,17 +99,17 @@ const SelectBox = styled.div`
     position: absolute;
     display: block;
     box-sizing: border-box;
-    top: 0.39em;
+    top: 7px;
     width: ${selectWidth};
     height: ${height};
     line-height: ${height};
     font-weight: ${({ theme }) => theme.font.four};
-    font-size: 1em;
+    font-size: 16px;
     color: ${({ theme }) => theme.color.white};
     background: transparent;
     z-index: -1;
     border-right: 1px solid ${({ theme }) => theme.color.white};
-    padding-left: 0 0.63em;
+    padding-left: 0 10px;
     &::before {
       content: '';
       position: absolute;
@@ -120,7 +120,7 @@ const SelectBox = styled.div`
       border-left: ${borderSize} transparent;
       border-right: ${borderSize} transparent;
       border-top: ${borderSize} ${({ theme }) => theme.color.white};
-      margin-right: 0.63em;
+      margin-right: 10px;
     }
   }
   select {
@@ -128,7 +128,7 @@ const SelectBox = styled.div`
     height: ${height};
     line-height: ${height};
     font-weight: ${({ theme }) => theme.font.five};
-    font-size: 0.88em;
+    font-size: 15px;
     border: 0;
     opacity: 0;
     appearance: none;

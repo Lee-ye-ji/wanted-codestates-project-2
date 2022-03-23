@@ -27,13 +27,12 @@ const Input = styled.input`
   background-color: transparent;
   outline: 0;
   border: none;
-  font-size: 12px;
   &::placeholder {
     color: #fff;
   }
 `;
 
 const SearchIcon = styled(BiSearch)`
-  font-size: 16px;
+  font-size: 22px;
   padding-top: 5px;
 `;

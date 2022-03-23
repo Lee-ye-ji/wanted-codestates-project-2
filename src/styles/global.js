@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
 
     #root{
         position: relative;
+        font-size: 12px;
+        a, button{
+            cursor: pointer;
+        }
     }
 
 `;
