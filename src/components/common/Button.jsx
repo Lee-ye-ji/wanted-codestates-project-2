@@ -19,10 +19,18 @@ const ButtonStyle = styled.button`
   margin-top: 20px;
   margin-right: 10px;
   ${(props) =>
-    props.blue &&
+    props.navy &&
     css`
       background: ${({ theme }) => theme.color.navy};
       color: ${({ theme }) => theme.color.white};
+    `}
+  ${(props) =>
+    props.blue &&
+    css`
+      background: ${({ theme }) => theme.color.white};
+      color: ${({ theme }) => theme.color.blue};
+      margin: 0;
+      border: 0.7px solid ${({ theme }) => theme.color.blue};
     `}
   ${(props) =>
     props.white &&

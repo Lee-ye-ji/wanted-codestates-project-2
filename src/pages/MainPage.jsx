@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import Inner from '../components/Inner';
+import Inner from '../components/common/Inner';
 import LeftAnimation from '../components/main/LeftAnimation';
 import RightAnimation from '../components/main/RightAnimation';
 import SearchForm from '../components/main/SearchForm';
 import TextArea from '../components/main/TextArea';
-import Menu from '../components/Menu';
+import Menu from '../components/common/Menu';
 import { MAIN_BG } from '../constants/image';
 
 function MainPage() {

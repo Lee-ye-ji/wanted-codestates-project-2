@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Inner from '../components/Inner';
-import Menu from '../components/Menu';
+import Inner from '../components/common/Inner';
+import Menu from '../components/common/Menu';
 
 function RankingPage() {
   return (

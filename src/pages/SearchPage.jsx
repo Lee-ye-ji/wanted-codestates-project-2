@@ -1,24 +1,23 @@
 import styled from 'styled-components';
-import Inner from '../components/Inner';
-import Menu from '../components/Menu';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchResult } from '../store/actions/search';
 import { useParams } from 'react-router-dom';
-import Profile from '../components/rank/profile/Profile';
+import Profile from '../components/rank/profile';
 import MatchMessage from '../components/rank/MatchMessage';
 import Battle from '../components/rank/Battle';
-import Stats from '../components/rank/Stats';
+import Record from '../components/rank/record';
+import Inner from '../components/common/Inner';
+import Menu from '../components/common/Menu';
+import Info from '../components/rank/Info';
 
 function SearchPage() {
   const dispatch = useDispatch();
-  // const result = useSelector((state) => state);
-  // console.log(result);
-  const { id } = useParams();
+  const { name } = useParams();
 
   useEffect(() => {
-    dispatch(searchResult(id));
-  }, [dispatch, id]);
+    dispatch(searchResult(name));
+  }, [dispatch, name]);
 
   return (
     <>
@@ -30,7 +29,8 @@ function SearchPage() {
           <MatchMessage />
           <Profile />
           <Battle />
-          <Stats />
+          <Record />
+          <Info />
         </Content>
       </TabArea>
     </>

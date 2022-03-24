@@ -1,4 +1,4 @@
-import Button from '../../Button';
+import Button from '../../common/Button';
 import { FaRedo, FaBell, FaShareAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 

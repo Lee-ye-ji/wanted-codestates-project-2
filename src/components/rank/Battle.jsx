@@ -1,11 +1,13 @@
 import styled, { keyframes } from 'styled-components';
-import Button from '../Button';
+import Button from '../common/Button';
 import { FaCalculator } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 
 function Battle() {
+  const { name } = useParams();
   return (
     <Gradient>
-      1대1 매칭 시뮬레이터 - 'BBEESSTT' 와 가상 대결을 펼쳐보세요.
+      1대1 매칭 시뮬레이터 - '{name}' 와 가상 대결을 펼쳐보세요.
       <Button white>
         <Calculator />
         매칭하기

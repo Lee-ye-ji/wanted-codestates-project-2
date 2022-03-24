@@ -1,7 +1,7 @@
 import { BiCaretDown } from 'react-icons/bi';
 import Inner from './Inner';
 import styled from 'styled-components';
-import { LOGO_KART, TMI_LOGO_DEFAULT_B } from '../constants/image';
+import { LOGO_KART, TMI_LOGO_DEFAULT_B } from '../../constants/image';
 
 function Header() {
   return (

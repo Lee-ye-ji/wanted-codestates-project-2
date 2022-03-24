@@ -5,7 +5,7 @@ import GlobalStyle from './styles/global';
 import MainPage from './pages/MainPage';
 import SearchPage from './pages/SearchPage';
 import RankingPage from './pages/RankingPage';
-import Layout from './components/Layout';
+import Layout from './components/common/Layout';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<MainPage />} />
             <Route path="rank" element={<RankingPage />} />
-            <Route path="/nick/:id" element={<SearchPage />} />
+            <Route path="/nick/:name" element={<SearchPage />} />
           </Route>
         </Routes>
       </Router>

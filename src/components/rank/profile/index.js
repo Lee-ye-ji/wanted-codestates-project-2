@@ -1,20 +1,26 @@
-import React from 'react';
 import styled from 'styled-components';
 import { AWS_IMG, BACKGROUND_FLAG_W } from '../../../constants/image';
 import TeamSelect from './TeamSelect';
 import UserAction from './UserAction';
 import { FaEye } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Profile() {
-  const CHARACTER = `42c729e64e31aea803e4881432f7b95129ce97535c29e4f9a72919a9f267b418`;
+  const { name } = useParams();
+  const result = useSelector((state) => state.search.userData);
+
   return (
     <ProfileStyle>
       <Nick>
         <User>
-          <img src={`${AWS_IMG}/character/${CHARACTER}.png`} alt="character" />
+          <img
+            src={`${AWS_IMG}/character/${result.character}.png`}
+            alt="character"
+          />
         </User>
         <Name>
-          <h1>BBEESSTT</h1>
+          <h1>{name}</h1>
           <Area>
             <TeamSelect />
             <UserAction />
@@ -43,8 +49,7 @@ const ProfileStyle = styled.div`
   background-position: 50%;
   border-width: 1px 1px 1px 4px;
   border-style: solid;
-  border-color: ${(props) => props.theme.color.gray};
-  border-left: ${(props) => props.theme.color.blue};
+  border-color: #f2f2f2 #f2f2f2 #f2f2f2 #07f;
   z-index: 2;
 `;
 

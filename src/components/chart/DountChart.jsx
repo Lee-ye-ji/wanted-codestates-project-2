@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 function DountChart({ color, percent }) {
@@ -58,7 +57,6 @@ const Percent = styled.span`
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: -7px;
   font-size: 20px;
   color: ${(props) => props.color};
 `;
