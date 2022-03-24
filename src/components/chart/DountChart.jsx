@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
-function DountChart({ color, percent }) {
+function DountChart({ color, percent, size }) {
   return (
-    <Chart>
+    <Chart size={size}>
       <AniSvg viewBox="0 0 200 200">
         <circle
           cx="100"
@@ -33,8 +33,8 @@ function DountChart({ color, percent }) {
 export default DountChart;
 
 const Chart = styled.div`
-  width: 85px;
-  height: 85px;
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
   margin: 20px auto;
 `;
 

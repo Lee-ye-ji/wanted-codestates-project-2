@@ -3,13 +3,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchResult } from '../store/actions/search';
 import { useParams } from 'react-router-dom';
-import Profile from '../components/rank/profile';
-import MatchMessage from '../components/rank/MatchMessage';
-import Battle from '../components/rank/Battle';
-import Record from '../components/rank/record';
+import Profile from '../components/user/profile';
+import MatchMessage from '../components/user/MatchMessage';
+import Battle from '../components/user/Battle';
+import Record from '../components/user/record';
 import Inner from '../components/common/Inner';
 import Menu from '../components/common/Menu';
-import Info from '../components/rank/Info';
+import Info from '../components/user/Info';
 
 function SearchPage() {
   const dispatch = useDispatch();

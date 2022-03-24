@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 
-function Button({ children, ...rest }) {
-  return <ButtonStyle {...rest}>{children}</ButtonStyle>;
+function Button({ children, color, ...rest }) {
+  return (
+    <ButtonStyle color={color} {...rest}>
+      {children}
+    </ButtonStyle>
+  );
 }
 
 export default Button;
@@ -32,10 +36,17 @@ const ButtonStyle = styled.button`
       margin: 0;
       border: 0.7px solid ${({ theme }) => theme.color.blue};
     `}
-  ${(props) =>
-    props.white &&
+    ${({ color }) =>
+    color === 'white' &&
     css`
       color: ${({ theme }) => theme.color.white};
+      border: 0.7px solid ${({ theme }) => theme.color.white};
+    `}
+    ${({ color }) =>
+    color === 'bgwhite' &&
+    css`
+      color: ${({ theme }) => theme.color.blue};
+      background: ${({ theme }) => theme.color.white};
       border: 0.7px solid ${({ theme }) => theme.color.white};
     `}
 `;
