@@ -94,10 +94,12 @@ export default Cheering;
 
 const Chating = styled.div`
   overflow-x: hidden;
+  width: 100%;
   ul {
     li {
       display: flex;
       margin-right: 10px;
+
       p {
         color: #07f;
         line-height: 53px;

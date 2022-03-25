@@ -9,6 +9,7 @@ import Explanation from '../components/rank/Explanation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { rankResult } from '../store/actions/rank';
+import Search from '../components/common/Search';
 
 function RankingPage() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function RankingPage() {
       <Base>
         <Inner>
           <Menu />
+          <Search />
           <PageDesc>
             <Explanation />
             <SelectButtons />
