@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux';
 import useRank from '../../../hooks/useRank';
 import LineChart from '../../chart/LineChart';
 import Box from '../../common/Box';
+import Loading from '../../common/Loading';
 import Text from '../../common/Text';
 
 function RankChange() {
   const data = useSelector((state) => state.search.rankList);
   const [arr, average] = useRank(data);
+  
+  if (data.length === 0) return <Loading />;
   return (
     <Box
       top={

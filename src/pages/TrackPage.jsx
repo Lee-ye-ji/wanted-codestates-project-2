@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import DownSpin from '../components/common/DownSpin';
 import Inner from '../components/common/Inner';
 import Menu from '../components/common/Menu';
 
@@ -7,13 +8,15 @@ function TrackPage() {
     <ContentMain>
       <Inner>
         <Menu />
-        <Center>
-          <img
-            src="https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/track/7394f4ea05d4115bc1308101998132e50e366c4456c6368a1800a494c6f8c0c1.png"
-            alt="kart"
-          />
-        </Center>
-        <h2>🚧 &nbsp;페이지 개발 중 입니다! &nbsp;🚧</h2>
+        <Img
+          src="https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/kart/eb333073a3486846660dc9e82e6b0c55c508c31853e4f4151d36f4b7fe17fe33.png?v=1648207117"
+          alt="kart"
+        />
+        <DownSpin />
+        <h1>현재 페이지 준비 중입니다.</h1>
+        <br />
+        <p>보다 나은 서비스를 제공하기 위해서 페이지를 준비 중에 있습니다.</p>
+        <p>빠른 시일 내에 준비하여 찾아뵙겠습니다.</p>
       </Inner>
     </ContentMain>
   );
@@ -29,12 +32,12 @@ const ContentMain = styled.div`
   background-size: cover;
   color: #fff;
   overflow: hidden;
-  height: 85vh;
+  height: 75vh;
 `;
 
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
+const Img = styled.img`
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 300px;
 `;

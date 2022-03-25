@@ -4,6 +4,7 @@ import Sub from '../common/Sub';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../common/Spinner';
 
 function TopRank() {
   const navigation = useNavigate();
@@ -18,6 +19,7 @@ function TopRank() {
     'https://tmi.nexon.com/img/assets/icon_bronzemedal.png',
   ];
 
+  if (rankConfirm.length === 0) return <Spinner size="50px" />;
   return (
     <Top>
       {split.map((item, idx) => (

@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { scrollResult } from '../../store/actions/search';
 import { useParams } from 'react-router-dom';
 import useIntersect from '../../hooks/useIntersect';
+import Loading from '../common/Loading';
 
 function Info() {
   const { userList } = useSelector((state) => state.search);
@@ -60,9 +61,11 @@ function Info() {
         />
       ))}
       <div ref={setRef}>
-        {userList.length === 200
-          ? '마지막 데이터 입니다.'
-          : isLoading && 'Loading...'}
+        {userList.length === 200 ? (
+          <p>마지막 데이터 입니다</p>
+        ) : (
+          isLoading && <Loading />
+        )}
       </div>
     </Content>
   );
