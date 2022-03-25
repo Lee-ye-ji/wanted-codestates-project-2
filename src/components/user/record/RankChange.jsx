@@ -3,11 +3,17 @@ import { useSelector } from 'react-redux';
 import useRank from '../../../hooks/useRank';
 import LineChart from '../../chart/LineChart';
 import Box from '../../common/Box';
+import Loading from '../../common/Loading';
 import Text from '../../common/Text';
 
 function RankChange() {
-  const data = useSelector((state) => state.search.rankList);
-  const [arr, average] = useRank(data);
+  const userList = useSelector((state) => state.search.userList);
+  const data = userList.map(({ player }) =>
+    player.matchRank === '' ? 0 : player.matchRank,
+  );
+  const [arr] = useRank(data);
+
+  if (data.length === 0) return <Loading />;
   return (
     <Box
       top={
@@ -18,8 +24,8 @@ function RankChange() {
           </h5>
           <p>
             지난 10경기
-            <span>{Math.round(average)}위</span> 최근 경기
-            <span>{data[0]}위</span>
+            <span>{data[1]}.5위</span> 최근 경기
+            <span>{data[1]}위</span>
           </p>
         </>
       }

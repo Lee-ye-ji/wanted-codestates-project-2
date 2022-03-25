@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { rankAddResult } from '../../store/actions/rank';
 import useIntersect from '../../hooks/useIntersect';
+import Loading from '../common/Loading';
 
 function RankList() {
   const navigation = useNavigate();
@@ -51,8 +52,10 @@ function RankList() {
             </Info>
           </li>
         ))}
+        <div ref={setRef}>
+          {!isLoading && rankConfirm.length !== 200 && <Loading />}
+        </div>
       </List>
-      <div ref={setRef}>{isLoading && 'Loading...'}</div>
     </Rank>
   );
 }
@@ -62,13 +65,13 @@ export default RankList;
 const Rank = styled.div`
   margin: 50px 0;
   width: 100%;
+  position: relative;
 `;
 
 const List = styled.ul`
   list-style: none;
   li {
     position: relative;
-    margin-bottom: 10px;
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.color.blue};

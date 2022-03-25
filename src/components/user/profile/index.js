@@ -5,19 +5,24 @@ import UserAction from './UserAction';
 import { FaEye } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Loading from '../../common/Loading';
 
 function Profile() {
   const { name } = useParams();
-  const result = useSelector((state) => state.search.userData);
+  const result = useSelector((state) => state.search.userList);
 
   return (
     <ProfileStyle>
       <Nick>
         <User>
-          <img
-            src={`${AWS_IMG}/character/${result.character}.png`}
-            alt="character"
-          />
+          {result[0]?.character?.length > 0 ? (
+            <img
+              src={`${AWS_IMG}/character/${result[0].character}.png`}
+              alt="character"
+            />
+          ) : (
+            <Loading />
+          )}
         </User>
         <Name>
           <h1>{name}</h1>

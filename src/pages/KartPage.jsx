@@ -1,40 +1,14 @@
-import styled from 'styled-components';
-import Inner from '../components/common/Inner';
-import Menu from '../components/common/Menu';
+import PageTemplate from '../components/common/PageTemplate';
 
 function KartPage() {
   return (
-    <ContentMain>
-      <Inner>
-        <Menu />
-        <Center>
-          <img
-            src="https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/kart/d47aa62de79d88ecee263e07456555d99ff8957f1760d0f248667913acbc2b67.png?v=1648160410"
-            alt="kart"
-          />
-        </Center>
-        <h2>🚧 &nbsp;페이지 개발 중 입니다! &nbsp;🚧</h2>
-      </Inner>
-    </ContentMain>
+    <PageTemplate
+      mainText="현재 페이지 준비 중입니다."
+      subText1="보다 나은 서비스를 제공하기 위해서 페이지를 준비 중에 있습니다."
+      subText2="빠른 시일 내에 준비하여 찾아뵙겠습니다."
+      imgsrc="https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/kart/5dae1a3dd645b7e8ee1e61b51c7f4111d9861b08ed0cdc68c2b0cdcbd8ac7d94.png?v=1648207117"
+    />
   );
 }
 
 export default KartPage;
-
-const ContentMain = styled.div`
-  width: 100%;
-  background: #005fcc;
-  position: relative;
-  text-align: center;
-  background-size: cover;
-  color: #fff;
-  overflow: hidden;
-  height: 85vh;
-`;
-
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-`;

@@ -8,6 +8,7 @@ import RankingPage from './pages/RankingPage';
 import Layout from './components/common/Layout';
 import TrackPage from './pages/TrackPage';
 import KartPage from './pages/KartPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/nick/:name" element={<UserPage />} />
             <Route path="/kart" element={<KartPage />} />
             <Route path="/track" element={<TrackPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </Router>
