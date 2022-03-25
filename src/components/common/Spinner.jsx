@@ -2,9 +2,9 @@ import styled, { keyframes } from 'styled-components';
 
 function Spinner({ size }) {
   return (
-    <Spin class="spinner" viewBox="0 0 50 50" size={size}>
+    <Spin className="spinner" viewBox="0 0 50 50" size={size}>
       <circle
-        class="path"
+        className="path"
         cx="25"
         cy="25"
         r="20"

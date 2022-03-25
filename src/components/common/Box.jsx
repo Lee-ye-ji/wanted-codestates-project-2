@@ -14,11 +14,11 @@ export default Box;
 
 const BoxDiv = styled.div`
   position: relative;
-  min-width: 300px;
   flex: 1;
   margin-right: 10px;
   background-color: ${({ theme }) => theme.color.white};
   border: 1px solid ${({ theme }) => theme.color.gray};
+  min-width: 300px;
 `;
 
 const Top = styled.div`

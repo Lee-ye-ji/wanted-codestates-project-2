@@ -8,9 +8,10 @@ import { addComment } from '../../../store/actions/comment';
 
 function Cheering() {
   const commentAll = useSelector((state) => state.comment);
+  console.log(commentAll);
   const { name } = useParams();
   const selectComment = commentAll.filter((item) => item.nick === name)[0]
-    .commentList;
+    ?.commentList;
   const [nick, setNick] = useState('');
   const [comment, setComment] = useState('');
   const onNick = useCallback(
@@ -42,13 +43,13 @@ function Cheering() {
           <h5>
             <span>응원</span> 한마디
           </h5>
-          <p>오늘 {selectComment.length}개</p>
+          <p>오늘 {selectComment?.length}개</p>
         </>
       }
       section={
         <Chating>
           <ul>
-            {selectComment.length === 0 ? (
+            {selectComment === undefined ? (
               <li>
                 <p>작성된 응원이 없습니다!</p>
               </li>
@@ -93,7 +94,6 @@ export default Cheering;
 
 const Chating = styled.div`
   overflow-x: hidden;
-  width: 100%;
   ul {
     li {
       display: flex;
