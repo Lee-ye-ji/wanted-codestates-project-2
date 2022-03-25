@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 const defaultOption = {
   root: null,
-  threshold: 0.5,
+  threshold: 0.7,
   rootMargin: '0px',
 };
 
@@ -14,7 +14,7 @@ function useIntersect(onIntersect, option) {
     if (entry.isIntersecting) {
       onIntersect(entry, observer);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ref나 option이 바뀔 경우 observer를 새로 등록한다.

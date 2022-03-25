@@ -1,12 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { rankAddResult } from '../../store/actions/rank';
+import useIntersect from '../../hooks/useIntersect';
 
 function RankList() {
   const navigation = useNavigate();
   const { rankConfirm } = useSelector((state) => state.rank);
   // 4위 부터 자르기
   const forth = rankConfirm.slice(4);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCount, setIsCount] = useState(1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isCount < 30) {
+      dispatch(rankAddResult(isCount));
+    }
+  }, [dispatch, isCount]);
+
+  const [, setRef] = useIntersect(async (entry, observer) => {
+    observer.unobserve(entry.target);
+    setIsLoading(true);
+    await setIsCount((prev) => prev + 1);
+    setIsLoading(false);
+    observer.observe(entry.target);
+  }, {});
+
   return (
     <Rank>
       <List>
@@ -31,6 +52,7 @@ function RankList() {
           </li>
         ))}
       </List>
+      <div ref={setRef}>{isLoading && 'Loading...'}</div>
     </Rank>
   );
 }
@@ -38,7 +60,7 @@ function RankList() {
 export default RankList;
 
 const Rank = styled.div`
-  margin-top: 20px;
+  margin: 50px 0;
   width: 100%;
 `;
 

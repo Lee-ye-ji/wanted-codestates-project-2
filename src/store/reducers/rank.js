@@ -1,4 +1,4 @@
-import { RANK_RESULT } from '../actions/type';
+import { RANK_RESULT, RANK_ADD_RESULT } from '../actions/type';
 
 const initialState = {
   rankConfirm: [],
@@ -11,6 +11,11 @@ export default function rank(state = initialState, action) {
       return {
         ...state,
         rankConfirm: action.rankConfirm,
+      };
+    case RANK_ADD_RESULT:
+      return {
+        ...state,
+        rankConfirm: [...state.rankConfirm, ...action.rankConfirm],
       };
     default:
       return state;

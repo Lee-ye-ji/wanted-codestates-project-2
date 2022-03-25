@@ -1,4 +1,4 @@
-import { RANK_RESULT } from './type';
+import { RANK_RESULT, RANK_ADD_RESULT } from './type';
 import axios from 'axios';
 import dateCalculate from '../../util/dateCalculate';
 
@@ -56,20 +56,34 @@ const detailMatchApi = async (matchId) => {
     console.log(err);
   }
 };
+// const common = async (num) => {
+//   const date = dateCalculate();
+//   const allMatch = await allMatchApi(date[num]);
+
+// 오늘 날짜 - 지난 달 날짜 구해서 합산한 결과로 api를 불러올라하였지만
+// 너무 많은 request 때문에 불가
+// const dateArr = await Promise.all(
+//   dateCalculate().map(async (element) => {
+//     const allMatch = await allMatchApi(element);
+//     return allMatch;
+//   }),
+// );
+// dateArr.flat()
+//   const rankingList = await Promise.all(
+//     allMatch.map(async (el) => {
+//       const matchList = await detailMatchApi(el);
+//       return matchList;
+//     }),
+//   );
+//   rankingList.sort((a, b) => {
+//     return a.rank - b.rank;
+//   });
+//   return rankingList;
+// };
 
 export const rankResult = async () => {
   const date = dateCalculate();
   const allMatch = await allMatchApi(date[0]);
-
-  // 오늘 날짜 - 지난 달 날짜 구해서 합산한 결과로 api를 불러올라하였지만
-  // 너무 많은 request 때문에 불가
-  // const dateArr = await Promise.all(
-  //   dateCalculate().map(async (element) => {
-  //     const allMatch = await allMatchApi(element);
-  //     return allMatch;
-  //   }),
-  // );
-  // dateArr.flat()
   const rankingList = await Promise.all(
     allMatch.map(async (el) => {
       const matchList = await detailMatchApi(el);
@@ -81,6 +95,24 @@ export const rankResult = async () => {
   });
   return {
     type: RANK_RESULT,
+    rankConfirm: rankingList,
+  };
+};
+
+export const rankAddResult = async (num) => {
+  const date = dateCalculate();
+  const allMatch = await allMatchApi(date[num]);
+  const rankingList = await Promise.all(
+    allMatch.map(async (el) => {
+      const matchList = await detailMatchApi(el);
+      return matchList;
+    }),
+  );
+  rankingList.sort((a, b) => {
+    return a.rank - b.rank;
+  });
+  return {
+    type: RANK_ADD_RESULT,
     rankConfirm: rankingList,
   };
 };
