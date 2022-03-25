@@ -1,11 +1,11 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import theme from './styles/theme';
 import GlobalStyle from './styles/global';
-import KartPage from './pages/KartPage';
-import SearchPage from './pages/SearchPage';
+import MainPage from './pages/MainPage';
+import UserPage from './pages/UserPage';
 import RankingPage from './pages/RankingPage';
+import Layout from './components/common/Layout';
 
 function App() {
   return (
@@ -13,9 +13,10 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/" element={<KartPage />}>
+          <Route element={<Layout />}>
+            <Route path="/" element={<MainPage />} />
             <Route path="rank" element={<RankingPage />} />
-            <Route path="user:id" element={<SearchPage />} />
+            <Route path="/nick/:name" element={<UserPage />} />
           </Route>
         </Routes>
       </Router>
