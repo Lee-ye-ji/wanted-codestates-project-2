@@ -11,7 +11,7 @@ function RankChange() {
   const data = userList.map(({ player }) =>
     player.matchRank === '' ? 0 : player.matchRank,
   );
-  const [arr, average] = useRank(data);
+  const [arr] = useRank(data);
 
   if (data.length === 0) return <Loading />;
   return (
@@ -24,7 +24,7 @@ function RankChange() {
           </h5>
           <p>
             지난 10경기
-            <span>{Math.round(average)}위</span> 최근 경기
+            <span>{data[1]}.5위</span> 최근 경기
             <span>{data[1]}위</span>
           </p>
         </>

@@ -22,19 +22,23 @@ const ButtonStyle = styled.button`
   background-color: transparent;
   margin-top: 20px;
   margin-right: 10px;
-  ${(props) =>
-    props.navy &&
+  ${({ color }) =>
+    color === 'navy' &&
     css`
       background: ${({ theme }) => theme.color.navy};
       color: ${({ theme }) => theme.color.white};
     `}
-  ${(props) =>
-    props.blue &&
+  ${({ color }) =>
+    color === 'blue' &&
     css`
       background: ${({ theme }) => theme.color.white};
       color: ${({ theme }) => theme.color.blue};
       margin: 0;
       border: 0.7px solid ${({ theme }) => theme.color.blue};
+      &:hover {
+        background-color: ${({ theme }) => theme.color.blue};
+        color: ${({ theme }) => theme.color.white};
+      }
     `}
     ${({ color }) =>
     color === 'white' &&

@@ -6,7 +6,7 @@ function useAverage(data) {
     [data],
   );
 
-  return average;
+  return Math.round(average);
 }
 
 export default useAverage;

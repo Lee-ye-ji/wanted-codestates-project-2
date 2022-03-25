@@ -1,8 +1,40 @@
 import Box from '../../common/Box';
 import styled from 'styled-components';
 import Button from '../../common/Button';
+import { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addComment } from '../../../store/actions/comment';
 
 function Cheering() {
+  const commentAll = useSelector((state) => state.comment);
+  const { name } = useParams();
+  const selectComment = commentAll.filter((item) => item.nick === name)[0]
+    .commentList;
+  const [nick, setNick] = useState('');
+  const [comment, setComment] = useState('');
+  const onNick = useCallback(
+    (e) => {
+      setNick(e.target.value);
+    },
+    [setNick],
+  );
+  const onComment = useCallback(
+    (e) => {
+      setComment(e.target.value);
+    },
+    [setComment],
+  );
+  const dispatch = useDispatch();
+  const onCheer = () => {
+    const text = {
+      id: nick,
+      comment: comment,
+    };
+    dispatch(addComment(text, name));
+    setNick('');
+    setComment('');
+  };
   return (
     <Box
       top={
@@ -10,26 +42,47 @@ function Cheering() {
           <h5>
             <span>응원</span> 한마디
           </h5>
-          <p>오늘 0개 &nbsp; 전체 29개</p>
+          <p>오늘 {selectComment.length}개</p>
         </>
       }
       section={
         <Chating>
           <ul>
-            <li>
-              <p>kart</p>
-              <Speech>
-                <p>ㅎㅇ여</p>
-              </Speech>
-            </li>
+            {selectComment.length === 0 ? (
+              <li>
+                <p>작성된 응원이 없습니다!</p>
+              </li>
+            ) : (
+              selectComment.map((item, idx) => (
+                <li key={idx}>
+                  <p>{item.id}</p>
+                  <Speech>
+                    <p>{item.comment}</p>
+                  </Speech>
+                </li>
+              ))
+            )}
           </ul>
         </Chating>
       }
       bottom={
         <InputMessage>
-          <Nick type="text" maxlength="5" placeholder="닉네임" />
-          <Chat placeholder="최대 30자" maxlength="30" />
-          <Button blue>남기기</Button>
+          <Nick
+            type="text"
+            maxlength="5"
+            placeholder="닉네임"
+            value={nick}
+            onChange={onNick}
+          />
+          <Chat
+            placeholder="최대 30자"
+            maxlength="30"
+            onChange={onComment}
+            value={comment}
+          />
+          <Button color="blue" onClick={onCheer}>
+            남기기
+          </Button>
         </InputMessage>
       }
     />

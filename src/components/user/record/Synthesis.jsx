@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import useAverage from '../../../hooks/useAverage';
 import DountChart from '../../chart/DountChart';
 import Box from '../../common/Box';
+import Loading from '../../common/Loading';
 import Text from '../../common/Text';
 
 function Synthesis() {
@@ -20,6 +21,7 @@ function Synthesis() {
     player.matchRetired === '' ? 0 : player.matchRetired,
   );
   const avgRetired = useAverage(retired);
+  if (data.length === 0) return <Loading />;
   return (
     <Box
       top={
