@@ -28,7 +28,6 @@ export const searchResult = async (nickname) => {
 
 export const scrollResult = async (nickname, page) => {
   const nickId = await userNameApi(nickname);
-  console.log('page', page);
   const userList = await userDataApi(nickId, page);
   return {
     type: SEARCH_SCROLL,

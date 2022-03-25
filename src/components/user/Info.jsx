@@ -19,7 +19,6 @@ function Info() {
 
   useEffect(() => {
     if (isCount < 300) {
-      console.log(isCount);
       dispatch(scrollResult(name, isCount));
       setIsLoading(false);
     }
@@ -49,7 +48,7 @@ function Info() {
             )
           }
           track={trackName(info.trackId)}
-          kart={kartName(info.player.kart)}
+          kart={kartName(info?.player?.kart)}
           time={matchTime(info.player.matchTime)}
           color={
             info.player.matchRank === '99'

@@ -4,7 +4,6 @@ import dateFormat from '../../util/dateFormat';
 
 function Explanation() {
   const date = dateFormat();
-  console.log(date[0]);
   return (
     <>
       <PageName>3월 TMI 랭킹</PageName>

@@ -12,7 +12,7 @@ function Menu() {
         <NavLink to="/rank">랭킹</NavLink>
       </li>
       <li>
-        <NavLink to="/cart">카트</NavLink>
+        <NavLink to="/kart">카트</NavLink>
       </li>
       <li>
         <NavLink to="/track">트랙</NavLink>
