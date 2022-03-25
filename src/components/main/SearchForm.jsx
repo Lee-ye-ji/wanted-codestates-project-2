@@ -1,22 +1,32 @@
-import React from 'react';
+import { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { TMI_LOGO_DEFAULT } from '../../constants/image';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchResult } from '../../store/actions/search';
+import Message from '../common/Message';
 
 function SearchForm() {
   const [nickName, setNickName] = useState('');
+  const [message, setMessage] = useState(false);
   const navigation = useNavigate();
   const dispatch = useDispatch();
-  const nickClick = () => {
-    dispatch(searchResult(nickName));
+  const { userList } = useSelector((state) => state.search);
+  useEffect(() => {
+    userList.length > 0 ? navigation(`/nick/${nickName}`) : navigation('/');
+  }, [navigation, nickName, userList]);
 
-    navigation(`/nick/${nickName}`);
+  const nickClick = (e) => {
+    e.preventDefault();
+    setMessage(true);
+    dispatch(searchResult(nickName));
   };
   return (
     <Searchform>
+      {userList.length === 0 && message && (
+        <Message>일치하는 유저 정보가 없습니다!</Message>
+      )}
       <form>
         <SelectBox>
           <label htmlFor="selectCategory">유저</label>
