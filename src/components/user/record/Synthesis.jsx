@@ -1,9 +1,25 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import useAverage from '../../../hooks/useAverage';
 import DountChart from '../../chart/DountChart';
 import Box from '../../common/Box';
 import Text from '../../common/Text';
 
 function Synthesis() {
+  const data = useSelector((state) => state.search.userList);
+  // 승률
+  const win = data.map(({ player }) =>
+    player.matchWin === '' ? 0 : player.matchWin,
+  );
+  const avgWin = useAverage(win);
+  // 완주율
+  const time = data.map(({ player }) => (player.matchTime === '' ? 0 : 1));
+  const aveTime = useAverage(time);
+  // 리타이어율
+  const retired = data.map(({ player }) =>
+    player.matchRetired === '' ? 0 : player.matchRetired,
+  );
+  const avgRetired = useAverage(retired);
   return (
     <Box
       top={
@@ -12,22 +28,22 @@ function Synthesis() {
             <span>종합</span>
             전적
           </h5>
-          <p>200전 &nbsp; 59승&nbsp; 141패</p>
+          <p>최근 10경기</p>
         </>
       }
       section={
         <>
           <Desc>
             <p>승률</p>
-            <DountChart color="#07f" percent={0.3} size="85px" />
+            <DountChart color="#07f" percent={avgWin} size="85px" />
           </Desc>
           <Desc>
             <p>완주율</p>
-            <DountChart color="#9bd728" percent={0.96} size="85px" />
+            <DountChart color="#9bd728" percent={aveTime} size="85px" />
           </Desc>
           <Desc>
             <p>리타이어율</p>
-            <DountChart color="#f62459" percent={0.05} size="85px" />
+            <DountChart color="#f62459" percent={avgRetired} size="85px" />
           </Desc>
         </>
       }

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import useAverage from './useAverage';
 
 function useRank(data) {
   const arr = useMemo(
@@ -16,10 +17,7 @@ function useRank(data) {
       }),
     [data],
   );
-  const average = useMemo(
-    () => data.reduce((p, c) => p + c, 0) / data.length,
-    [data],
-  );
+  const { average } = useAverage(data);
 
   return [arr, average];
 }

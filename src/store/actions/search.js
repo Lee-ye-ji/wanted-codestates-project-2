@@ -19,12 +19,9 @@ const userDataApi = async (nickId, page) =>
 export const searchResult = async (nickname) => {
   const nickId = await userNameApi(nickname);
   const userList = await userDataApi(nickId, 10);
-  const rankList = userList.map(({ player }) => parseInt(player.matchRank));
   return {
     type: SEARCH_RESULT,
     userList: userList,
-    userData: userList[0],
-    rankList: rankList,
   };
 };
 
