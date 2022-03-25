@@ -3,11 +3,16 @@ import styled, { keyframes } from 'styled-components';
 import { TMI_LOGO_DEFAULT } from '../../constants/image';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { searchResult } from '../../store/actions/search';
 
 function SearchForm() {
   const [nickName, setNickName] = useState('');
   const navigation = useNavigate();
+  const dispatch = useDispatch();
   const nickClick = () => {
+    dispatch(searchResult(nickName));
+
     navigation(`/nick/${nickName}`);
   };
   return (

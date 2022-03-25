@@ -3,9 +3,9 @@ import styled, { keyframes } from 'styled-components';
 function Loading() {
   return (
     <Spinner>
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
+      <div className="bounce1"></div>
+      <div className="bounce2"></div>
+      <div className="bounce3"></div>
     </Spinner>
   );
 }
@@ -23,6 +23,8 @@ const bounce = keyframes`
 const Spinner = styled.div`
   margin-top: 20px;
   text-align: center;
+  /* min-width: 300px; */
+  width: 100%;
   div {
     width: 10px;
     height: 10px;
