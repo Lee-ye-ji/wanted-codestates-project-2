@@ -2,6 +2,8 @@ import { RANK_RESULT, RANK_ADD_RESULT } from './type';
 import axios from 'axios';
 import dateCalculate from '../../util/dateCalculate';
 
+axios.defaults.baseURL =
+  'https://proxy-cors-setting.herokuapp.com/https://api.nexon.co.kr/kart/v1.0';
 axios.defaults.headers.common['Authorization'] =
   process.env.REACT_APP_NEXON_TMI_KEY;
 
