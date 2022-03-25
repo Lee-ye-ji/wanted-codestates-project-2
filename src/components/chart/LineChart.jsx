@@ -39,7 +39,7 @@ const Graph = styled.div`
 
 const GraphLine = styled.line`
   stroke: ${({ theme }) => theme.color.blue};
-  stroke-width: 1;
+  strokewidth: 1;
 `;
 
 const GraphCircle = styled.circle`

@@ -6,7 +6,9 @@ function Menu() {
   return (
     <MenuStyle>
       <li>
-        <NavLink to="/">홈</NavLink>
+        <NavLink exact to="/">
+          홈
+        </NavLink>
       </li>
       <li>
         <NavLink to="/rank">랭킹</NavLink>
