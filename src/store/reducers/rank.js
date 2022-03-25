@@ -11,6 +11,7 @@ export default function rank(state = initialState, action) {
         ...state,
         rankConfirm: action.rankConfirm,
       };
+
     case RANK_ADD_RESULT:
       return {
         ...state,
