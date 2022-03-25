@@ -1,4 +1,4 @@
-import { RANK_RESULT, RANK_ADD_RESULT } from './type';
+import { RANK_RESULT, RANK_ADD_RESULT, RANK_SEARCH_RESULT } from './type';
 import axios from 'axios';
 import dateCalculate from '../../util/dateCalculate';
 
@@ -114,5 +114,12 @@ export const rankAddResult = async (num) => {
   return {
     type: RANK_ADD_RESULT,
     rankConfirm: rankingList,
+  };
+};
+
+export const searchRanck = (name) => {
+  return {
+    type: RANK_SEARCH_RESULT,
+    rankName: name,
   };
 };
