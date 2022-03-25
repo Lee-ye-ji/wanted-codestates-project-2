@@ -7,13 +7,13 @@ function LineChart({ points, data }) {
   return (
     <Graph>
       <svg viewBox="-10 -150 480 450">
-        {lines.map(({ x1, x2, y1, y2 }) => (
-          <GraphLine x1={x1} x2={x2} y1={y1} y2={y2} />
+        {lines.map(({ x1, x2, y1, y2 }, idx) => (
+          <GraphLine x1={x1} x2={x2} y1={y1} y2={y2} key={idx} />
         ))}
 
         {points.map(({ x, y }, index) => {
           return (
-            <>
+            <div key={index}>
               <GraphCircle cx={x} cy={y} r="3" />
               <Text
                 x={x - 10}
@@ -22,7 +22,7 @@ function LineChart({ points, data }) {
               >
                 {data[index] + '위'}
               </Text>
-            </>
+            </div>
           );
         })}
       </svg>
