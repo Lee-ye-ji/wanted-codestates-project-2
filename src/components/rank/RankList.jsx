@@ -1,6 +1,12 @@
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function RankList() {
+  const navigation = useNavigate();
+  const { rankConfirm } = useSelector((state) => state.rank);
+  // 4위 부터 자르기
+  const forth = rankConfirm.slice(4);
   return (
     <Rank>
       <List>
@@ -8,56 +14,22 @@ function RankList() {
           <Head>
             <RankNum>#</RankNum>
             <Nick>닉네임 (순위변동)</Nick>
-            <Pts>누적포인트 (전일대비)</Pts>
-            <Cnt>주행횟수</Cnt>
+            <Pts>승률</Pts>
+            <Cnt>리타이어</Cnt>
             <Ave>평균순위</Ave>
           </Head>
         </li>
-        <li>
-          <Info>
-            <RankNum>4</RankNum>
-            <Nick>1234Kcm</Nick>
-            <Pts>3,608 PT</Pts>
-            <Cnt>508회</Cnt>
-            <Ave>2.3위</Ave>
-          </Info>
-        </li>
-        <li>
-          <Info>
-            <RankNum>4</RankNum>
-            <Nick>1234Kcm</Nick>
-            <Pts>3,608 PT</Pts>
-            <Cnt>508회</Cnt>
-            <Ave>2.3위</Ave>
-          </Info>
-        </li>
-        <li>
-          <Info>
-            <RankNum>4</RankNum>
-            <Nick>1234Kcm</Nick>
-            <Pts>3,608 PT</Pts>
-            <Cnt>508회</Cnt>
-            <Ave>2.3위</Ave>
-          </Info>
-        </li>
-        <li>
-          <Info>
-            <RankNum>4</RankNum>
-            <Nick>1234Kcm</Nick>
-            <Pts>3,608 PT</Pts>
-            <Cnt>508회</Cnt>
-            <Ave>2.3위</Ave>
-          </Info>
-        </li>
-        <li>
-          <Info>
-            <RankNum>4</RankNum>
-            <Nick>1234Kcm</Nick>
-            <Pts>3,608 PT</Pts>
-            <Cnt>508회</Cnt>
-            <Ave>2.3위</Ave>
-          </Info>
-        </li>
+        {forth.map((item, idx) => (
+          <li key={idx} onClick={() => navigation(`/nick/${item.nick}`)}>
+            <Info>
+              <RankNum>{idx + 4}</RankNum>
+              <Nick>{item.nick}</Nick>
+              <Pts>{item.win}회</Pts>
+              <Cnt>{item.retired}회</Cnt>
+              <Ave>{item.rank}위</Ave>
+            </Info>
+          </li>
+        ))}
       </List>
     </Rank>
   );
@@ -75,6 +47,11 @@ const List = styled.ul`
   li {
     position: relative;
     margin-bottom: 10px;
+    &:hover {
+      cursor: pointer;
+      color: ${({ theme }) => theme.color.blue};
+      border: 0.3px solid ${({ theme }) => theme.color.blue};
+    }
   }
 `;
 

@@ -6,8 +6,16 @@ import RankList from '../components/rank/RankList';
 import TopRank from '../components/rank/TopRank';
 import SelectButtons from '../components/rank/SelectButtons';
 import Explanation from '../components/rank/Explanation';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { rankResult } from '../store/actions/rank';
 
 function RankingPage() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(rankResult());
+  }, [dispatch]);
+
   return (
     <>
       <Base>

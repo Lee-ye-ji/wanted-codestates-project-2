@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import Sub from '../common/Sub';
+import dateFormat from '../../util/dateFormat';
 
 function Explanation() {
+  const date = dateFormat();
+  console.log(date[0]);
   return (
     <>
       <PageName>3월 TMI 랭킹</PageName>
       <Line />
       <Sub>
         <span>랭킹 산정기간</span>
-        2022년 03월 01일 00:00:00 ~ 2022년 03월 31일 24:00:00
+        {date[0]} ~ {date[1]}
       </Sub>
       <Sub>
         <span>최근 업데이트</span>
-        2022년 03월 24일 09:15:14
+        {date[1]} 00:00:00
       </Sub>
       <RankGuide>랭킹가이드</RankGuide>
     </>

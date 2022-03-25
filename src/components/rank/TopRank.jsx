@@ -2,47 +2,66 @@ import DountChart from '../chart/DountChart';
 import { FaPlusCircle } from 'react-icons/fa';
 import Sub from '../common/Sub';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function TopRank() {
+  const navigation = useNavigate();
+  const { rankConfirm } = useSelector((state) => state.rank);
+
+  // 상위 세개 자르기
+  const split = rankConfirm.slice(0, 3);
+  console.log(split);
+
+  const medalArr = [
+    'https://tmi.nexon.com/img/assets/icon_goldmedal.png',
+    'https://tmi.nexon.com/img/assets/icon_silvermedal.png',
+    'https://tmi.nexon.com/img/assets/icon_bronzemedal.png',
+  ];
+
   return (
     <Top>
-      <Ranker>
-        <Medal
-          src="https://tmi.nexon.com/img/assets/icon_goldmedal.png"
-          alt="1등"
-        />
-        <Name>
-          <Nick>법사케피</Nick>
-          <Sub color="black">
-            순위
-            <span>1위</span>
-          </Sub>
-          <Sub color="black">
-            누적포인트
-            <span>6,991PT</span>
-            <Green>
-              <FaPlusCircle />
-              469
-            </Green>
-          </Sub>
-        </Name>
-        <CharaterImg
-          src="https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/character/95de437771bb1e094b4f3ef1c1a81574093a01e8d3be037c5a9fe0834dfbffa0.png"
-          alt="profile"
-        />
-        <PercentBox>
-          <DountRate>
-            <p>승률</p>
-            <DountChart color="#07f" percent={0.65} size="65px" />
-          </DountRate>
-          <DountRate>
-            <p>리타이어율</p>
-            <DountChart color="#f62459" percent={0.65} size="65px" />
-          </DountRate>
-        </PercentBox>
-      </Ranker>
-      <Ranker></Ranker>
-      <Ranker></Ranker>
+      {split.map((item, idx) => (
+        <Ranker key={idx} onClick={() => navigation(`/nick/${item.nick}`)}>
+          <Medal src={medalArr[idx]} alt={idx + '등'} />
+          <Name>
+            <Nick>{item.nick}</Nick>
+            <Sub color="black">
+              순위
+              <span>{idx + 1}위</span>
+            </Sub>
+            <Sub color="black">
+              매치 시간
+              <span>{item.time}</span>
+              <Green>
+                <FaPlusCircle />
+              </Green>
+            </Sub>
+          </Name>
+          <CharaterImg
+            src={`https://s3-ap-northeast-1.amazonaws.com/solution-userstats/metadata/character/${item.img}.png`}
+            alt="profile"
+          />
+          <PercentBox>
+            <DountRate>
+              <p>승률</p>
+              <DountChart
+                color="#07f"
+                percent={item.win === '0' ? 0.53 : 0.9}
+                size="65px"
+              />
+            </DountRate>
+            <DountRate>
+              <p>리타이어율</p>
+              <DountChart
+                color="#f62459"
+                percent={item.retired === '0' ? 0 : item.retired * 0.1}
+                size="65px"
+              />
+            </DountRate>
+          </PercentBox>
+        </Ranker>
+      ))}
     </Top>
   );
 }
@@ -73,6 +92,11 @@ const Ranker = styled.div`
   margin-right: 42px;
   box-shadow: 5px 5px 5px -5px rgb(0 0 0 / 21%);
   text-align: left;
+  &:hover {
+    cursor: pointer;
+    background: ${({ theme }) => theme.color.navy};
+    color: ${({ theme }) => theme.color.white};
+  }
 `;
 
 const Name = styled.div`

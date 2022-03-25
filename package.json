@@ -57,5 +57,9 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Lee-ye-ji/wanted-codestates-project-2.git",
+  "author": "Lee-Ye-Ji <dpwl30559@gmail.com>",
+  "license": "MIT"
 }

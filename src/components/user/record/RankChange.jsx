@@ -18,7 +18,7 @@ function RankChange() {
           </h5>
           <p>
             지난 10경기
-            <span>{average}위</span> 최근 경기
+            <span>{Math.round(average)}위</span> 최근 경기
             <span>{data[0]}위</span>
           </p>
         </>
