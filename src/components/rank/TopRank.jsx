@@ -11,7 +11,6 @@ function TopRank() {
 
   // 상위 세개 자르기
   const split = rankConfirm.slice(0, 3);
-  console.log(split);
 
   const medalArr = [
     'https://tmi.nexon.com/img/assets/icon_goldmedal.png',
