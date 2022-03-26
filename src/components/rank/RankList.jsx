@@ -10,7 +10,7 @@ function RankList() {
   const navigation = useNavigate();
   const { rankConfirm } = useSelector((state) => state.rank);
   // 4위 부터 자르기
-  const forth = rankConfirm.slice(4);
+  const forth = rankConfirm?.slice(4);
   const [isLoading, setIsLoading] = useState(false);
   const [isCount, setIsCount] = useState(1);
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ function RankList() {
           </Head>
         </li>
         {forth.map((item, idx) => (
-          <li key={idx} onClick={() => navigation(`/nick/${item.nick}`)}>
+          <li key={idx} onClick={() => navigation(`/${item.nick}`)}>
             <Info>
               <RankNum>{idx + 4}</RankNum>
               <Nick>{item.nick}</Nick>
@@ -52,9 +52,9 @@ function RankList() {
             </Info>
           </li>
         ))}
-        <div ref={setRef}>
-          {!isLoading && rankConfirm.length !== 200 && <Loading />}
-        </div>
+        <Scroll ref={setRef}>
+          {!isLoading && rankConfirm?.length !== 200 && <Loading />}
+        </Scroll>
       </List>
     </Rank>
   );
@@ -124,4 +124,8 @@ const Cnt = styled.span`
 const Ave = styled.span`
   position: absolute;
   right: 60px;
+`;
+
+const Scroll = styled.div`
+  margin-top: 20px;
 `;

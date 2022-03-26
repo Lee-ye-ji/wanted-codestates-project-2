@@ -14,7 +14,7 @@ function SearchForm() {
   const dispatch = useDispatch();
   const { userList } = useSelector((state) => state.search);
   useEffect(() => {
-    userList.length > 0 ? navigation(`/nick/${nickName}`) : navigation('/');
+    userList.length > 0 ? navigation(`/${nickName}`) : navigation('/');
   }, [navigation, nickName, userList]);
 
   const nickClick = (e) => {

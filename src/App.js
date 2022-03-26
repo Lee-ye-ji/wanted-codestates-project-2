@@ -17,9 +17,9 @@ function App() {
       <Router>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" exact={true} element={<MainPage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/rank" element={<RankingPage />} />
-            <Route path="/nick/:name" element={<UserPage />} />
+            <Route path="/:name" element={<UserPage />} />
             <Route path="/kart" element={<KartPage />} />
             <Route path="/track" element={<TrackPage />} />
             <Route path="*" element={<NotFoundPage />} />
