@@ -11,7 +11,7 @@ function TopRank() {
   const { rankConfirm } = useSelector((state) => state.rank);
 
   // 상위 세개 자르기
-  const split = rankConfirm.slice(0, 3);
+  const split = rankConfirm?.slice(0, 3);
 
   const medalArr = [
     'https://tmi.nexon.com/img/assets/icon_goldmedal.png',
@@ -19,11 +19,11 @@ function TopRank() {
     'https://tmi.nexon.com/img/assets/icon_bronzemedal.png',
   ];
 
-  if (rankConfirm.length === 0) return <Spinner size="50px" />;
+  if (rankConfirm?.length === 0) return <Spinner size="50px" />;
   return (
     <Top>
       {split.map((item, idx) => (
-        <Ranker key={idx} onClick={() => navigation(`/nick/${item.nick}`)}>
+        <Ranker key={idx} onClick={() => navigation(`/${item.nick}`)}>
           <Medal src={medalArr[idx]} alt={idx + '등'} />
           <Name>
             <Nick>{item.nick}</Nick>
