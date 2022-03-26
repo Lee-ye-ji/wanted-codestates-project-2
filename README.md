@@ -98,7 +98,7 @@ TMI 넥슨 페이지의 소스 코드를 참고하여 구현하였습니다. [�
 
 
 ## 그 외의 구현한 방법
-반복되는 부분을 줄이고자 노력하였습니다. 자주 사용되는 Button을 컴포넌트화하여 색상을 Props로 받아서 구현하였습니다.
+반복되는 부분을 줄이고자 노력하였습니다. 자주 사용되는 Button을 컴포넌트화하여 색상을 Props로 받아서 구현하였습니다. <br/>
 ![image](https://user-images.githubusercontent.com/59958929/160248769-a6145c38-1fe7-4fc2-a94d-e213f4677109.png)
 ![image](https://user-images.githubusercontent.com/59958929/160248776-18247738-c69a-4ee4-bcb1-8f284a4c3bdc.png)
 
@@ -117,6 +117,7 @@ function Button({ children, color, ...rest }) {
       background: ${({ theme }) => theme.color.navy};
       color: ${({ theme }) => theme.color.white};
     `}
+...
 ```
 
 
